@@ -1,3 +1,15 @@
 body{
   margin: 0;
 }
+
+
+h1{
+  height: 60px;
+  width: 100px;
+  margin: auto;
+  padding: 20px 10px;
+  font-size: inherit;
+  border: 2px solid green;
+  border-radius: 20%;
+  text-align: center;
+}
