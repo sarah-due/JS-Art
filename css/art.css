@@ -2,22 +2,37 @@ body {
   margin: 0;
 }
 
-h1 {
-  height: 60px;
-  width: 100px;
+canvas {
+  background: #fff; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(circle, #fff, #7465da); /* Safari */
+  background: -o-radial-gradient(circle, #fff, #7465da); /* Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle, #fff, #7465da); /* Firefox 3.6 to 15 */
+  background: radial-gradient(circle, #fff, #7465da); /* Standard syntax */
+}
+
+button {
+  height: 300px;
+  width: 200px;
   margin: auto;
   margin-top: 10%;
   padding: 20px 10px;
-  font-size: inherit;
-  border: 2px solid green;
+  font-size: 32px;
+  font-family: "Amatica SC", cursive;
+  font-weight: bold;
+  color: #392f7b;
+  background-color: #fff;
+  border: 2px solid #392f7b;
   border-radius: 20%;
   text-align: center;
   left: 45%;
   position: absolute;
+  z-index: 999;
+  cursor: pointer;
   box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 	transform: translatey(0px);
 	animation: float 3s ease-in-out infinite;
 }
+
 
 
 @keyframes float {
