@@ -1,38 +1,37 @@
 /* set up variables for basic canvas body and context */
+var circButton = document.getElementById('circlebtn');
 var canvas = document.querySelector('canvas');
 var c = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 
-/* create random color variables */
-var r = (Math.floor(Math.random() * 256));
-var g = (Math.floor(Math.random() * 256));
-var b = (Math.floor(Math.random() * 256));
-var a = 1;
+  /* click even to drop random "slinkies" */
+circButton.addEventListener('click', function() {
+  
+  /* create random color variables */
+  var r = (Math.floor(Math.random() * 256));
+  var g = (Math.floor(Math.random() * 256));
+  var b = (Math.floor(Math.random() * 256));
+  var a = 1;
 
-/* create random starting axis for blocks and ending points for animation*/
-var x = (Math.random()* canvas.width);
-var y = 0;
-var mx;
-var my;
+  /* create random starting axis for blocks and ending points for animation*/
+  var x = (Math.random()* canvas.width);
+  var y = 0;
 
-/* drop random rectangle "blocks" */
+  function circleDrop() {
+    y+=10;
 
-function blockDrop() {
-  y++;
+    c.beginPath();
+    c.arc(x, y, 30, 0, Math.PI*2, false);
+    c.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+    c.stroke();
+    c.closePath();
 
-  c.clearRect(0, 0, canvas.width, canvas.height);
+    requestAnimFrame(circleDrop);
 
-  c.beginPath();
-  c.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-  c.closePath();
-  c.fillRect(x, y, 100, 100);
+  };
 
-
-  requestAnimFrame(blockDrop);
-
-};
-
-/* Begin dropping blocks! */
-blockDrop();
+  circleDrop();
+});
